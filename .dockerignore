@@ -1,0 +1,7 @@
+Dockerfile
+.dockerignore
+node_modules
+.git
+build
+**/*dev.db
+**/dev.db-journal
