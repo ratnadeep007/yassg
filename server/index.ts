@@ -82,6 +82,7 @@ async function registerRoutes() {
         const importName = file.split(".")[0];
         const imp = require(path.join(__dirname, `/../${dir}/${file}`));
         const methods = Object.keys(imp);
+        console.log();
         if (methods.includes('get')) {
             app.get(`/api/${importName}`, imp["get"]);
         }
