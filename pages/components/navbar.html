@@ -1,0 +1,12 @@
+<nav class="container mx-auto flex flex-row justify-between w-full py-3">
+    <ul class="w-2/3">
+        <li class="text-lg font-bold"><div x-text="$store.pageData.brand"></div></li>
+    </ul>
+    <ul class="flex flex-row w-1/3 justify-between">
+        <template x-for="item in $store.pageData.menus">
+            <li class="menu-item cursor-pointer">
+                <a x-bind:href="item.link" x-text="item.name" />
+            </li>
+        </template>
+    </ul>
+</nav>

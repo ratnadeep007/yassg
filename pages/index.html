@@ -12,25 +12,17 @@
         document.addEventListener('alpine:init', () => {
             Alpine.store('pageData', { 
                 "add it": "here", 
-                getExample() { console.log("hello") } 
+                getExample() { 
+                    fetch('/api/example')
+                        .then(res => res.json())
+                        .then(console.log) 
+                } 
             });
         })
     </script>
 </head>
 <body x-data x-init="$store.pageData.getExample()">
-    <nav class="container mx-auto flex flex-row justify-between w-full py-3">
-        <ul class="w-2/3">
-            <li class="text-lg font-bold"><div x-text="$store.pageData.brand"></div></li>
-        </ul>
-        <!-- <div x-text="$store.pageData.menus.join('---')"></div> -->
-        <ul class="flex flex-row w-1/3 justify-between">
-            <template x-for="item in $store.pageData.menus">
-                <li class="menu-item cursor-pointer">
-                    <a x-bind:href="item.link" x-text="item.name" />
-                </li>
-            </template>
-        </ul>
-    </nav>
+    <Navbar />
     <main class="container mx-auto">
         <div class="grid grid-cols-2">
             <div>1</div>
